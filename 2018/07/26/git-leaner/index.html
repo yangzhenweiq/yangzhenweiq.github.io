@@ -82,22 +82,22 @@
 <meta name="description" content="1，快速设置 快捷键git  config --global alias.br &amp;apos;branch&amp;apos; git  config --global alias.ci &amp;apos;commit&amp;apos; 类似这样使用可以简化 git command 操作命令，也可以在gitconfig文件里面设置。 2，快速添加漏添加的修改git commit -amend     适用于 已经提交后">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git操作">
-<meta property="og:url" content="http://yoursite.com/2018/07/26/git/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/07/26/git-leaner/index.html">
 <meta property="og:site_name" content="yzw blog">
 <meta property="og:description" content="1，快速设置 快捷键git  config --global alias.br &amp;apos;branch&amp;apos; git  config --global alias.ci &amp;apos;commit&amp;apos; 类似这样使用可以简化 git command 操作命令，也可以在gitconfig文件里面设置。 2，快速添加漏添加的修改git commit -amend     适用于 已经提交后">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/07/26/git/blog_images/basic-rebase-1.png">
-<meta property="og:image" content="http://yoursite.com/Users/yzw/Downloads/basic-rebase-3.png">
-<meta property="og:image" content="http://yoursite.com/Users/yzw/Downloads/interesting-rebase-1.png">
-<meta property="og:image" content="http://yoursite.com/Users/yzw/Downloads/interesting-rebase-2.png">
-<meta property="og:image" content="http://yoursite.com/Users/yzw/Downloads/interesting-rebase-4.png">
-<meta property="og:image" content="http://yoursite.com/Users/yzw/Downloads/interesting-rebase-3.png">
-<meta property="og:image" content="http://yoursite.com/Users/yzw/Downloads/interesting-rebase-5.png">
-<meta property="og:updated_time" content="2018-07-26T10:04:12.824Z">
+<meta property="og:image" content="http://yoursite.com/2018/07/26/git-leaner/basic-rebase-1.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/26/git-leaner/Users/yzw/Downloads/basic-rebase-3.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/26/git-leaner/Users/yzw/Downloads/interesting-rebase-1.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/26/git-leaner/Users/yzw/Downloads/interesting-rebase-2.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/26/git-leaner/Users/yzw/Downloads/interesting-rebase-4.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/26/git-leaner/Users/yzw/Downloads/interesting-rebase-3.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/26/git-leaner/Users/yzw/Downloads/interesting-rebase-5.png">
+<meta property="og:updated_time" content="2018-07-26T10:53:17.307Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git操作">
 <meta name="twitter:description" content="1，快速设置 快捷键git  config --global alias.br &amp;apos;branch&amp;apos; git  config --global alias.ci &amp;apos;commit&amp;apos; 类似这样使用可以简化 git command 操作命令，也可以在gitconfig文件里面设置。 2，快速添加漏添加的修改git commit -amend     适用于 已经提交后">
-<meta name="twitter:image" content="http://yoursite.com/2018/07/26/git/blog_images/basic-rebase-1.png">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/26/git-leaner/basic-rebase-1.png">
 
 
 
@@ -127,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/26/git/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/26/git-leaner/"/>
 
 
 
@@ -260,7 +260,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/26/git/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/26/git-leaner/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yzw">
@@ -289,7 +289,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-26T06:04:12-04:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-26T06:53:17-04:00">
                 2018-07-26
               </time>
             
@@ -342,27 +342,27 @@ git  config --global alias.ci &apos;commit&apos;
 </ul>
 <p>运行git merge命令会把2个分支的最新快照记录和二者的共同祖先进行三方合并，合并后会生成一个最新的快照。</p>
 <p>运行git rebase命令结果会和git merge一样，但是提交的历史会隔年清晰明了。</p>
-<p>首先我们观看2个分支的情况：<br><img src="blog_images/basic-rebase-1.png" alt="avatar"></p>
+<p>首先我们观看2个分支的情况：<br><img src="/2018/07/26/git-leaner/basic-rebase-1.png" alt="avatar"></p>
 <p>在上面这个例子中，运行：</p>
 <pre><code>$ git checkout experiment
 $ git rebase master
 </code></pre><p>它的原理是首先找到这两个分支（即当前分支 experiment、变基操作的目标基底分支 master）的最近共同祖先 C2，然后对比当前分支相对于该祖先的历次提交，提取相应的修改并存为临时文件，然后将当前分支指向目标基底 C3, 最后以此将之前另存为临时文件的修改依序应用。（译注：写明了 commit id，以便理解，下同）</p>
-<p>将 <code>C4</code> 中的修改变基到 <code>C3</code> 上。<br><img src="/Users/yzw/Downloads/basic-rebase-3.png" alt="MacDown Screenshot"></p>
+<p>将 <code>C4</code> 中的修改变基到 <code>C3</code> 上。<br><img src="/2018/07/26/git-leaner/Users/yzw/Downloads/basic-rebase-3.png" alt="MacDown Screenshot"></p>
 <p>这样就会形成一条线行记录，很清晰，所以git rebase 的优势就是能够很清晰的记录和美化提交历史。</p>
-<p>更有趣的变基例子<br>在对两个分支进行变基时，所生成的“重放”并不一定要在目标分支上应用，你也可以指定另外的一个分支进行应用。 就像 从一个特性分支里再分出一个特性分支的提交历史 中的例子那样。 你创建了一个特性分支 server，为服务端添加了一些功能，提交了 C3 和 C4。 然后从 C3 上创建了特性分支 client，为客户端添加了一些功能，提交了 C8 和 C9。 最后，你回到 server 分支，又提交了 C10。<br><img src="/Users/yzw/Downloads/interesting-rebase-1.png" alt="MacDown Screenshot"></p>
+<p>更有趣的变基例子<br>在对两个分支进行变基时，所生成的“重放”并不一定要在目标分支上应用，你也可以指定另外的一个分支进行应用。 就像 从一个特性分支里再分出一个特性分支的提交历史 中的例子那样。 你创建了一个特性分支 server，为服务端添加了一些功能，提交了 C3 和 C4。 然后从 C3 上创建了特性分支 client，为客户端添加了一些功能，提交了 C8 和 C9。 最后，你回到 server 分支，又提交了 C10。<br><img src="/2018/07/26/git-leaner/Users/yzw/Downloads/interesting-rebase-1.png" alt="MacDown Screenshot"></p>
 <p>从一个特性分支里再分出一个特性分支的提交历史。<br>Figure 39. 从一个特性分支里再分出一个特性分支的提交历史<br>假设你希望将 client 中的修改合并到主分支并发布，但暂时并不想合并 server 中的修改，因为它们还需要经过更全面的测试。 这时，你就可以使用 git rebase 命令的 –onto 选项，选中在 client 分支里但不在 server 分支里的修改（即 C8 和 C9），将它们在 master 分支上重放：</p>
 <pre><code>$ git rebase --onto master server client
-</code></pre><p>以上命令的意思是：“取出 client 分支，找出处于 client 分支和 server 分支的共同祖先之后的修改，然后把它们在 master 分支上重放一遍”。 这理解起来有一点复杂，不过效果非常酷。<br><img src="/Users/yzw/Downloads/interesting-rebase-2.png" alt="MacDown Screenshot"></p>
+</code></pre><p>以上命令的意思是：“取出 client 分支，找出处于 client 分支和 server 分支的共同祖先之后的修改，然后把它们在 master 分支上重放一遍”。 这理解起来有一点复杂，不过效果非常酷。<br><img src="/2018/07/26/git-leaner/Users/yzw/Downloads/interesting-rebase-2.png" alt="MacDown Screenshot"></p>
 <p>截取特性分支上的另一个特性分支，然后变基到其他分支。<br>Figure 40. 截取特性分支上的另一个特性分支，然后变基到其他分支<br>现在可以快进合并 master 分支了。（如图 快进合并 master 分支，使之包含来自 client 分支的修改）：</p>
 <pre><code>$ git checkout master
 $ git merge client
-</code></pre><p><img src="/Users/yzw/Downloads/interesting-rebase-4.png" alt="MacDown Screenshot"><br>快进合并 master 分支，使之包含来自 client 分支的修改。<br>Figure 41. 快进合并 master 分支，使之包含来自 client 分支的修改<br>接下来你决定将 server 分支中的修改也整合进来。 使用 git rebase [basebranch] [topicbranch] 命令可以直接将特性分支（即本例中的 server）变基到目标分支（即 master）上。这样做能省去你先切换到 server 分支，再对其执行变基命令的多个步骤。</p>
+</code></pre><p><img src="/2018/07/26/git-leaner/Users/yzw/Downloads/interesting-rebase-4.png" alt="MacDown Screenshot"><br>快进合并 master 分支，使之包含来自 client 分支的修改。<br>Figure 41. 快进合并 master 分支，使之包含来自 client 分支的修改<br>接下来你决定将 server 分支中的修改也整合进来。 使用 git rebase [basebranch] [topicbranch] 命令可以直接将特性分支（即本例中的 server）变基到目标分支（即 master）上。这样做能省去你先切换到 server 分支，再对其执行变基命令的多个步骤。</p>
 <pre><code>$ git rebase master server
-</code></pre><p>如图 将 server 中的修改变基到 master 上 所示，server 中的代码被“续”到了 master 后面。<br><img src="/Users/yzw/Downloads/interesting-rebase-3.png" alt="MacDown Screenshot"></p>
+</code></pre><p>如图 将 server 中的修改变基到 master 上 所示，server 中的代码被“续”到了 master 后面。<br><img src="/2018/07/26/git-leaner/Users/yzw/Downloads/interesting-rebase-3.png" alt="MacDown Screenshot"></p>
 <p>将 server 中的修改变基到 master 上。<br>Figure 42. 将 server 中的修改变基到 master 上<br>然后就可以快进合并主分支 master 了：</p>
 <pre><code>$ git checkout master
 $ git merge server
-</code></pre><p>至此，client 和 server 分支中的修改都已经整合到主分支里了，你可以删除这两个分支，最终提交历史会变成图 最终的提交历史 中的样子：<br><img src="/Users/yzw/Downloads/interesting-rebase-5.png" alt="MacDown Screenshot"> </p>
+</code></pre><p>至此，client 和 server 分支中的修改都已经整合到主分支里了，你可以删除这两个分支，最终提交历史会变成图 最终的提交历史 中的样子：<br><img src="/2018/07/26/git-leaner/Users/yzw/Downloads/interesting-rebase-5.png" alt="MacDown Screenshot"> </p>
 <p>####git rebase 的缺点：</p>
 <p>变基操作的实质是丢弃一些现有的提交，然后相应地新建一些内容一样但实际上不同的提交。 如果你已经将提交推送至某个仓库，而其他人也已经从该仓库拉取提交并进行了后续工作，此时，如果你用 git rebase 命令重新整理了提交并再次推送，你的同伴因此将不得不再次将他们手头的工作与你的提交进行整合，如果接下来你还要拉取并整合他们修改过的提交，事情就会变得一团糟</p>
 <p>在本例中如何缓解git rebase缺点导致的问题：使用 git pull –rebase 命令而不是直接 git pull。 又或者你可以自己手动完成这个过程，先 git fetch，再 git rebase teamone/master。<br>如果遇到前面提到的 有人推送了经过变基的提交，并丢弃了你的本地开发所基于的一些提交 那种情境，如果我们不是执行合并，而是执行 git rebase teamone/master, 这个操作将会执行下列操作：</p>
