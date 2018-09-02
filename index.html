@@ -280,7 +280,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-02T12:39:57-04:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-02T12:49:42-04:00">
                 2018-09-02
               </time>
             
@@ -320,8 +320,7 @@
       
         
           
-            <h4 id="docker学习总结"><a href="#docker学习总结" class="headerlink" title="docker学习总结"></a><center>docker学习总结</center></h4><p>##1. Docker简述</p>
-<p>传统的虚拟机器需要安装独立的OS系统，需要分配一部分内存和和硬盘空间，虚拟机器开启后这些资源就不能被其他程序使用，而且虚拟机启动时需要启动系统，所有启动的时间就需要几分钟。而Docker是实现轻量级的操作系统虚拟化解决方案。 Docker 的基础是 Linux 容器（LXC）等技术。在 LXC 的基础上 Docker 进行了进一步的封装，让用户不需要去关心容器的管理，使得操作更为简便。用户操作 Docker 的容器就像操作一个快速轻量级的虚拟机一样简单。而主机仅需安装docker本身，并不需要再安装其它的环境。</p>
+            <h4 id="docker学习总结"><a href="#docker学习总结" class="headerlink" title="docker学习总结"></a><center>docker学习总结</center></h4><h2 id="1-Docker简述"><a href="#1-Docker简述" class="headerlink" title="1. Docker简述"></a>1. Docker简述</h2><p>传统的虚拟机器需要安装独立的OS系统，需要分配一部分内存和和硬盘空间，虚拟机器开启后这些资源就不能被其他程序使用，而且虚拟机启动时需要启动系统，所有启动的时间就需要几分钟。而Docker是实现轻量级的操作系统虚拟化解决方案。 Docker 的基础是 Linux 容器（LXC）等技术。在 LXC 的基础上 Docker 进行了进一步的封装，让用户不需要去关心容器的管理，使得操作更为简便。用户操作 Docker 的容器就像操作一个快速轻量级的虚拟机一样简单。而主机仅需安装docker本身，并不需要再安装其它的环境。</p>
 <p>其对比虚拟机的好处如下：</p>
 <p>1，同一个主机上运行多个应用程序，而应用程序的运行环境彼此隔离，互不干扰可以充分利用主机的计算和存储资源。</p>
 <p>2， 能快速部署，新机器只需要安装docker并导入构建好的镜像就可以完成程序部署，免去了繁琐的安装和配置工作，维护成本大大降低。</p>
@@ -333,14 +332,12 @@
 <ol>
 <li>docker 的基本核心概念：</li>
 </ol>
-<p>#镜像</p>
-<p>Docker 镜像可以理解为一个特殊的文件系统，除了提供容器运行时所需的程序、库、资源、配置等文 件外，还包含了一些为运行时准备的一些配置参数(如匿名卷、环境变量、用户等)。镜像不包含任何动态数据，其内容在构建之后也不会被改变。<br>镜像实际体现并非由一个文件组成， 而是由一组文件系统组成，或者说，由多层文件系统联合组成。镜像构建时，会一层层构建，前一层是后一层的基础。每一层构建完就不会再发生改变，后一层上的任何改变只发生在自己这一层。比如，删除前一层文件的操作，实际不是真的删除前一层的文件，而是仅在当前层标记为该文件已删除。如图：</p>
-<p><img src="/2018/09/02/docker/docker/镜像层.png" alt="MacdDown Screenshot"></p>
-<p>#容器</p>
-<p>容器可以理解为镜像创建的一个实例，它可以被启动，开始，停止，删除，每个容器都是相互隔离的，保证安全的平台，容器的定义和镜像的定义一样，也是分很多层，只是在最上面一层多加了一个读写层，如图：</p>
+<h1 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h1><p>Docker 镜像可以理解为一个特殊的文件系统，除了提供容器运行时所需的程序、库、资源、配置等文 件外，还包含了一些为运行时准备的一些配置参数(如匿名卷、环境变量、用户等)。镜像不包含任何动态数据，其内容在构建之后也不会被改变。<br>镜像实际体现并非由一个文件组成， 而是由一组文件系统组成，或者说，由多层文件系统联合组成。镜像构建时，会一层层构建，前一层是后一层的基础。每一层构建完就不会再发生改变，后一层上的任何改变只发生在自己这一层。比如，删除前一层文件的操作，实际不是真的删除前一层的文件，而是仅在当前层标记为该文件已删除。如图：</p>
+<p><img src="/2018/09/02/docker/镜像层.png" alt="MacdDown Screenshot"></p>
+<h1 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h1><p>容器可以理解为镜像创建的一个实例，它可以被启动，开始，停止，删除，每个容器都是相互隔离的，保证安全的平台，容器的定义和镜像的定义一样，也是分很多层，只是在最上面一层多加了一个读写层，如图：</p>
 <p><img src="/2018/09/02/docker/容器.png" alt="MacdDown Screenshot"></p>
 <p>我们对文件的修改，创建都会作用于可读写层，其他的镜像层都只是只读的。</p>
-<p>#仓库<br>常用的镜像仓库： </p>
+<h1 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h1><p>常用的镜像仓库： </p>
 <p>docker hub：<a href="https://hub.docker.com/" target="_blank" rel="noopener">https://hub.docker.com/</a></p>
 <p>阿里： <a href="https://cr.console.aliyun.com/#/imageList" target="_blank" rel="noopener">https://cr.console.aliyun.com/#/imageList</a></p>
 <p>我们可以从Docker hub上拉取一个我们需要的基础镜像。可在Docker hub官网上注册一个Docker hub账户，并搜索自己需要的基础镜像。并找到相应的image名称和tag名称。一个基础镜像是通过image名称+”:”+tag名称确定的。比如ubuntu:12.04，其中ubuntu为镜像名称，12.04代表镜像的tag。可执行如下命令从Docker hub上拉取一个基础镜像：<br>docker pull image名称:tag名称<br>其中image名称和tag名称分别代表具体的image和tag名称，中间用”:”分割。</p>
@@ -385,7 +382,7 @@ $ exit
 </code></pre><p>通过 docker diff mynginx 可以查看修改的部分 ：</p>
 <p>此时我们看到的内容会和之前我们运行看到的不一样，是因为我们对容器进行了修改 ，我们可以通过 docker commit -a “yzw” -m “修改nginx页面” mynginx nginx:v2 来提交我们的修改，也可以提交到我们的仓库里面 ，这样我们更加理解镜像的创建和使用的过程，但是我们不提倡 使用docker commit 来生成镜像，因为我们如果仔细的回顾，我们docker diff 来查看修改，实际上在这个过程中 ，我们修改的文件远远不止一个，这样创建的话会导致我们的的镜像每次都更加的臃肿，所以如果更好的创建一个镜像呢？   </p>
 <h1 id="编写Dockerfile并构建自定义image"><a href="#编写Dockerfile并构建自定义image" class="headerlink" title="编写Dockerfile并构建自定义image"></a>编写Dockerfile并构建自定义image</h1><p>接下来将基于基础镜像层层叠加，逐步构建为自定义的镜像。Dockerfile详细的描述了如何叠加镜像的每一层，最终形成自定义镜像。具体使用方法如下：<br>在任意位置创建目录，作为构建自定义镜像的工程目录<br>在目录中创建一个名字为Dockerfile的文本文件<br>编写Dockerfile<br>运行docker build -t “image名称:tag名称” .<br>经过如上四步，就可以完成自定义镜像的构建了，下面详细说明如何编写Dockerfile。</p>
-<p>#编写Dockerfile<br>Dockerfile就是一个简单的文本文件，但需遵从Docker定义的语法格式编写，以便构建镜像的程序解析。Docker的语法格式非常简单。每一行代表一条命令，也就代表覆盖在基础镜像中的一层。一行命令的格式如下：<br>命令名称 命令参数<br>其中命令名称为大写英文字母，不同的命令名称有不同的命令参数。下面看一个Dockerfile的实例，实例取自Docker Hub上Mysql官方镜像。我们在新的目录下面创建一个Dockerfile</p>
+<h1 id="编写Dockerfile"><a href="#编写Dockerfile" class="headerlink" title="编写Dockerfile"></a>编写Dockerfile</h1><p>Dockerfile就是一个简单的文本文件，但需遵从Docker定义的语法格式编写，以便构建镜像的程序解析。Docker的语法格式非常简单。每一行代表一条命令，也就代表覆盖在基础镜像中的一层。一行命令的格式如下：<br>命令名称 命令参数<br>其中命令名称为大写英文字母，不同的命令名称有不同的命令参数。下面看一个Dockerfile的实例，实例取自Docker Hub上Mysql官方镜像。我们在新的目录下面创建一个Dockerfile</p>
 <pre><code>&apos;&apos;&apos;
 FROM python:2.7
 ENV PYTHONUNBUFFERED 1
