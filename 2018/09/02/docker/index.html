@@ -79,13 +79,21 @@
 
 
 
-<meta property="og:type" content="website">
+<meta name="description" content="docker学习总结##1. Docker简述 传统的虚拟机器需要安装独立的OS系统，需要分配一部分内存和和硬盘空间，虚拟机器开启后这些资源就不能被其他程序使用，而且虚拟机启动时需要启动系统，所有启动的时间就需要几分钟。而Docker是实现轻量级的操作系统虚拟化解决方案。 Docker 的基础是 Linux 容器（LXC）等技术。在 LXC 的基础上 Docker 进行了进一步的封装，让用户不需要">
+<meta property="og:type" content="article">
 <meta property="og:title" content="yzw blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/09/02/docker/index.html">
 <meta property="og:site_name" content="yzw blog">
+<meta property="og:description" content="docker学习总结##1. Docker简述 传统的虚拟机器需要安装独立的OS系统，需要分配一部分内存和和硬盘空间，虚拟机器开启后这些资源就不能被其他程序使用，而且虚拟机启动时需要启动系统，所有启动的时间就需要几分钟。而Docker是实现轻量级的操作系统虚拟化解决方案。 Docker 的基础是 Linux 容器（LXC）等技术。在 LXC 的基础上 Docker 进行了进一步的封装，让用户不需要">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/09/02/docker/docker_c/s_image.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/02/docker/docker/镜像层.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/02/docker/容器.png">
+<meta property="og:updated_time" content="2018-09-02T16:39:57.384Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="yzw blog">
+<meta name="twitter:description" content="docker学习总结##1. Docker简述 传统的虚拟机器需要安装独立的OS系统，需要分配一部分内存和和硬盘空间，虚拟机器开启后这些资源就不能被其他程序使用，而且虚拟机启动时需要启动系统，所有启动的时间就需要几分钟。而Docker是实现轻量级的操作系统虚拟化解决方案。 Docker 的基础是 Linux 容器（LXC）等技术。在 LXC 的基础上 Docker 进行了进一步的封装，让用户不需要">
+<meta name="twitter:image" content="http://yoursite.com/2018/09/02/docker/docker_c/s_image.png">
 
 
 
@@ -115,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/02/docker/"/>
 
 
 
 
 
-  <title>yzw blog</title>
+  <title> | yzw blog</title>
   
 
 
@@ -140,8 +148,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -234,9 +241,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -266,9 +273,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/02/docker/" itemprop="url">未命名</a></h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -318,9 +323,7 @@
       
 
       
-        
-          
-            <h4 id="docker学习总结"><a href="#docker学习总结" class="headerlink" title="docker学习总结"></a><center>docker学习总结</center></h4><p>##1. Docker简述</p>
+        <h4 id="docker学习总结"><a href="#docker学习总结" class="headerlink" title="docker学习总结"></a><center>docker学习总结</center></h4><p>##1. Docker简述</p>
 <p>传统的虚拟机器需要安装独立的OS系统，需要分配一部分内存和和硬盘空间，虚拟机器开启后这些资源就不能被其他程序使用，而且虚拟机启动时需要启动系统，所有启动的时间就需要几分钟。而Docker是实现轻量级的操作系统虚拟化解决方案。 Docker 的基础是 Linux 容器（LXC）等技术。在 LXC 的基础上 Docker 进行了进一步的封装，让用户不需要去关心容器的管理，使得操作更为简便。用户操作 Docker 的容器就像操作一个快速轻量级的虚拟机一样简单。而主机仅需安装docker本身，并不需要再安装其它的环境。</p>
 <p>其对比虚拟机的好处如下：</p>
 <p>1，同一个主机上运行多个应用程序，而应用程序的运行环境彼此隔离，互不干扰可以充分利用主机的计算和存储资源。</p>
@@ -419,8 +422,6 @@ ADD . /code/
 </code></pre><p>1.首先利用centos镜像创建了一个容器worker。<br>2.使用–volumes-from dbdata参数来让worker容器挂载dbdata容器的数据卷(即dbdata数据卷)；<br>3.使用-v $(pwd):/backup参数来挂载本地的当前目录到worker容器的/backup目录    </p>
 <p>。</p>
 
-          
-        
       
     </div>
     
@@ -437,181 +438,28 @@ ADD . /code/
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/26/git-leaner/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yzw">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yzw blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/26/git-leaner/" itemprop="url">git操作</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-26T08:08:34-04:00">
-                2018-07-26
-              </time>
+              <a href="/2018/07/26/git-leaner/" rel="next" title="git操作">
+                <i class="fa fa-chevron-left"></i> git操作
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h4 id="1，快速设置-快捷键"><a href="#1，快速设置-快捷键" class="headerlink" title="1，快速设置 快捷键"></a>1，快速设置 快捷键</h4><pre><code>git  config --global alias.br &apos;branch&apos;
-git  config --global alias.ci &apos;commit&apos;
-</code></pre><p>类似这样使用可以简化 git command 操作命令，也可以在gitconfig文件里面设置。</p>
-<h4 id="2，快速添加漏添加的修改"><a href="#2，快速添加漏添加的修改" class="headerlink" title="2，快速添加漏添加的修改"></a>2，快速添加漏添加的修改</h4><pre><code>git commit -amend 
-</code></pre><p>   适用于 已经提交后，在同一个提交里面追加内容修改 </p>
-<p>   例如 修改了一个text 文件 ，执行了 git add. git commit 命令 生成了一个提交记录 v1，现在追加修改了text文件， 可以执行  git commit -amend 来提交，这样会把修改添加到 v1的提交里面 </p>
-<pre><code>git reset HEAD --filename 
-</code></pre><p>  主要针对 已经执行git add, 后存入暂存区文件的操作， 撤销暂存。</p>
-<h3 id="git-rebase"><a href="#git-rebase" class="headerlink" title="git rebase"></a>git rebase</h3><ul>
-<li>git rebase 和 git merge 的区别</li>
-<li>git rebase 的优势</li>
-<li>git rebase 的缺点</li>
-</ul>
-<p>运行git merge命令会把2个分支的最新快照记录和二者的共同祖先进行三方合并，合并后会生成一个最新的快照。</p>
-<p>运行git rebase命令结果会和git merge一样，但是提交的历史会隔年清晰明了。</p>
-<p>首先我们观看2个分支的情况：<br><img src="/2018/07/26/git-leaner/basic-rebase-1.png" alt="avatar"></p>
-<p>在上面这个例子中，运行：</p>
-<pre><code>$ git checkout experiment
-$ git rebase master
-</code></pre><p>它的原理是首先找到这两个分支（即当前分支 experiment、变基操作的目标基底分支 master）的最近共同祖先 C2，然后对比当前分支相对于该祖先的历次提交，提取相应的修改并存为临时文件，然后将当前分支指向目标基底 C3, 最后以此将之前另存为临时文件的修改依序应用。（译注：写明了 commit id，以便理解，下同）</p>
-<p>将 <code>C4</code> 中的修改变基到 <code>C3</code> 上。<br><img src="/2018/07/26/git-leaner/basic-rebase-3.png" alt="MacDown Screenshot"></p>
-<p>这样就会形成一条线行记录，很清晰，所以git rebase 的优势就是能够很清晰的记录和美化提交历史。</p>
-<p>更有趣的变基例子<br>在对两个分支进行变基时，所生成的“重放”并不一定要在目标分支上应用，你也可以指定另外的一个分支进行应用。 就像 从一个特性分支里再分出一个特性分支的提交历史 中的例子那样。 你创建了一个特性分支 server，为服务端添加了一些功能，提交了 C3 和 C4。 然后从 C3 上创建了特性分支 client，为客户端添加了一些功能，提交了 C8 和 C9。 最后，你回到 server 分支，又提交了 C10。<br><img src="/2018/07/26/git-leaner/interesting-rebase-1.png" alt="MacDown Screenshot"></p>
-<p>从一个特性分支里再分出一个特性分支的提交历史。<br>Figure 39. 从一个特性分支里再分出一个特性分支的提交历史<br>假设你希望将 client 中的修改合并到主分支并发布，但暂时并不想合并 server 中的修改，因为它们还需要经过更全面的测试。 这时，你就可以使用 git rebase 命令的 –onto 选项，选中在 client 分支里但不在 server 分支里的修改（即 C8 和 C9），将它们在 master 分支上重放：</p>
-<pre><code>$ git rebase --onto master server client
-</code></pre><p>以上命令的意思是：“取出 client 分支，找出处于 client 分支和 server 分支的共同祖先之后的修改，然后把它们在 master 分支上重放一遍”。 这理解起来有一点复杂，不过效果非常酷。<br><img src="/2018/07/26/git-leaner/interesting-rebase-2.png" alt="MacDown Screenshot"></p>
-<p>截取特性分支上的另一个特性分支，然后变基到其他分支。<br>Figure 40. 截取特性分支上的另一个特性分支，然后变基到其他分支<br>现在可以快进合并 master 分支了。（如图 快进合并 master 分支，使之包含来自 client 分支的修改）：</p>
-<pre><code>$ git checkout master
-$ git merge client
-</code></pre><p><img src="/2018/07/26/git-leaner/interesting-rebase-4.png" alt="MacDown Screenshot"><br>快进合并 master 分支，使之包含来自 client 分支的修改。<br>Figure 41. 快进合并 master 分支，使之包含来自 client 分支的修改<br>接下来你决定将 server 分支中的修改也整合进来。 使用 git rebase [basebranch] [topicbranch] 命令可以直接将特性分支（即本例中的 server）变基到目标分支（即 master）上。这样做能省去你先切换到 server 分支，再对其执行变基命令的多个步骤。</p>
-<pre><code>$ git rebase master server
-</code></pre><p>如图 将 server 中的修改变基到 master 上 所示，server 中的代码被“续”到了 master 后面。<br><img src="/2018/07/26/git-leaner/interesting-rebase-6.png" alt="MacDown Screenshot"></p>
-<p>将 server 中的修改变基到 master 上。<br>Figure 42. 将 server 中的修改变基到 master 上<br>然后就可以快进合并主分支 master 了：</p>
-<pre><code>$ git checkout master
-$ git merge server
-</code></pre><p>至此，client 和 server 分支中的修改都已经整合到主分支里了，你可以删除这两个分支，最终提交历史会变成图 最终的提交历史 中的样子：<br><img src="/2018/07/26/git-leaner/interesting-rebase-5.png" alt="MacDown Screenshot"> </p>
-<h4 id="git-rebase-的缺点："><a href="#git-rebase-的缺点：" class="headerlink" title="git rebase 的缺点："></a>git rebase 的缺点：</h4><p>变基操作的实质是丢弃一些现有的提交，然后相应地新建一些内容一样但实际上不同的提交。 如果你已经将提交推送至某个仓库，而其他人也已经从该仓库拉取提交并进行了后续工作，此时，如果你用 git rebase 命令重新整理了提交并再次推送，你的同伴因此将不得不再次将他们手头的工作与你的提交进行整合，如果接下来你还要拉取并整合他们修改过的提交，事情就会变得一团糟</p>
-<p>在本例中如何缓解git rebase缺点导致的问题：使用 git pull –rebase 命令而不是直接 git pull。 又或者你可以自己手动完成这个过程，先 git fetch，再 git rebase teamone/master。<br>如果遇到前面提到的 有人推送了经过变基的提交，并丢弃了你的本地开发所基于的一些提交 那种情境，如果我们不是执行合并，而是执行 git rebase teamone/master, 这个操作将会执行下列操作：</p>
-<p>Git 将会：</p>
-<ul>
-<li><p>检查哪些提交是我们的分支上独有的（C2，C3，C4，C6，C7）</p>
-</li>
-<li><p>检查其中哪些提交不是合并操作的结果（C2，C3，C4）</p>
-</li>
-<li><p>检查哪些提交在对方覆盖更新时并没有被纳入目标分支（只有 C2 和 C3，因为 C4 其实就是 C4’）</p>
-</li>
-</ul>
-<p>把查到的这些提交应用在 teamone/master 上面</p>
-<p>从而我们将得到与 你将相同的内容又合并了一次，生成了一个新的提交 中不同的结果，如图 在一个被变基然后强制推送的分支上再次执行变基 所示。</p>
-<p>如果你习惯使用 git pull ，同时又希望默认使用选项 –rebase，你可以执行这条语句 git config –global pull.rebase true 来更改 pull.rebase 的默认配置。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -621,130 +469,11 @@ $ git merge server
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/16/python-多线程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yzw">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yzw blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/16/python-多线程/" itemprop="url">python多进程和多线程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-16T22:47:24-05:00">
-                2018-01-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>1，多进程的的跨平台模块</strong><br>  使用Python的多进程模块:multiprocessing</p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -752,6 +481,10 @@ $ git merge server
 
 
           
+
+  
+
+
 
         </div>
         
@@ -772,8 +505,17 @@ $ git merge server
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -815,6 +557,22 @@ $ git merge server
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#docker学习总结"><span class="nav-number">1.</span> <span class="nav-text">docker学习总结</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#docker的基本操作"><span class="nav-number"></span> <span class="nav-text">docker的基本操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编写Dockerfile并构建自定义image"><span class="nav-number"></span> <span class="nav-text">编写Dockerfile并构建自定义image</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据卷的作用和如何使用数据卷"><span class="nav-number"></span> <span class="nav-text">数据卷的作用和如何使用数据卷</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -948,6 +706,10 @@ $ git merge server
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
