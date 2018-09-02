@@ -280,7 +280,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-02T12:49:42-04:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-02T12:53:44-04:00">
                 2018-09-02
               </time>
             
@@ -326,12 +326,10 @@
 <p>2， 能快速部署，新机器只需要安装docker并导入构建好的镜像就可以完成程序部署，免去了繁琐的安装和配置工作，维护成本大大降低。</p>
 <p>3，更加简单的管理，由于构建好的镜像都是一层一层的提交和构建，只需要小小的修改，就可以替代以往大量的更新工作。所有的修改都以增量的方式被分发和更新，从而实现自动化并且高效的管理。</p>
 <p>4， 镜像的重复利用率高。<br>Docker架构<br>docker引擎是一个c/s结构的应用，主要组件见下图：</p>
-<p><img src="/2018/09/02/docker/docker_c/s_image.png" alt="MacdDown Screenshot"></p>
+<p><img src="/2018/09/02/docker/dokcer/docker_c/s_image.png" alt="MacdDown Screenshot"></p>
 <p>1, 通过 REST API 实现了client和server间的交互协议</p>
 <p>2, 客户端实现容器和镜像的管理，为用户提供统一的操作界面</p>
-<ol>
-<li>docker 的基本核心概念：</li>
-</ol>
+<p>docker 的基本核心概念：</p>
 <h1 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h1><p>Docker 镜像可以理解为一个特殊的文件系统，除了提供容器运行时所需的程序、库、资源、配置等文 件外，还包含了一些为运行时准备的一些配置参数(如匿名卷、环境变量、用户等)。镜像不包含任何动态数据，其内容在构建之后也不会被改变。<br>镜像实际体现并非由一个文件组成， 而是由一组文件系统组成，或者说，由多层文件系统联合组成。镜像构建时，会一层层构建，前一层是后一层的基础。每一层构建完就不会再发生改变，后一层上的任何改变只发生在自己这一层。比如，删除前一层文件的操作，实际不是真的删除前一层的文件，而是仅在当前层标记为该文件已删除。如图：</p>
 <p><img src="/2018/09/02/docker/镜像层.png" alt="MacdDown Screenshot"></p>
 <h1 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h1><p>容器可以理解为镜像创建的一个实例，它可以被启动，开始，停止，删除，每个容器都是相互隔离的，保证安全的平台，容器的定义和镜像的定义一样，也是分很多层，只是在最上面一层多加了一个读写层，如图：</p>
