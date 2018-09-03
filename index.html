@@ -280,7 +280,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-02T13:04:14-04:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-02T22:41:37-04:00">
                 2018-09-02
               </time>
             
@@ -380,7 +380,7 @@ $ exit
 </code></pre><p>通过 docker diff mynginx 可以查看修改的部分 ：</p>
 <p>此时我们看到的内容会和之前我们运行看到的不一样，是因为我们对容器进行了修改 ，我们可以通过 docker commit -a “yzw” -m “修改nginx页面” mynginx nginx:v2 来提交我们的修改，也可以提交到我们的仓库里面 ，这样我们更加理解镜像的创建和使用的过程，但是我们不提倡 使用docker commit 来生成镜像，因为我们如果仔细的回顾，我们docker diff 来查看修改，实际上在这个过程中 ，我们修改的文件远远不止一个，这样创建的话会导致我们的的镜像每次都更加的臃肿，所以如果更好的创建一个镜像呢？   </p>
 <h1 id="编写Dockerfile并构建自定义image"><a href="#编写Dockerfile并构建自定义image" class="headerlink" title="编写Dockerfile并构建自定义image"></a>编写Dockerfile并构建自定义image</h1><p>接下来将基于基础镜像层层叠加，逐步构建为自定义的镜像。Dockerfile详细的描述了如何叠加镜像的每一层，最终形成自定义镜像。具体使用方法如下：<br>在任意位置创建目录，作为构建自定义镜像的工程目录<br>在目录中创建一个名字为Dockerfile的文本文件<br>编写Dockerfile<br>运行docker build -t “image名称:tag名称” .<br>经过如上四步，就可以完成自定义镜像的构建了，下面详细说明如何编写Dockerfile。</p>
-<h1 id="编写Dockerfile"><a href="#编写Dockerfile" class="headerlink" title="编写Dockerfile"></a>编写Dockerfile</h1><p>Dockerfile就是一个简单的文本文件，但需遵从Docker定义的语法格式编写，以便构建镜像的程序解析。Docker的语法格式非常简单。每一行代表一条命令，也就代表覆盖在基础镜像中的一层。一行命令的格式如下：<br>命令名称 命令参数<br>其中命令名称为大写英文字母，不同的命令名称有不同的命令参数。下面看一个Dockerfile的实例，实例取自Docker Hub上Mysql官方镜像。我们在新的目录下面创建一个Dockerfile</p>
+<h1 id="编写Dockerfile"><a href="#编写Dockerfile" class="headerlink" title="编写Dockerfile"></a>编写Dockerfile</h1><p>Dockerfile就是一个简单的文本文件，但需遵从Docker定义的语法格式编写，以便构建镜像的程序解析。Docker的语法格式非常简单。每一行代表一条命令，也就代表覆盖在基础镜像中的一层。一行命令的格式如下：<br>命令名称 命令参数<br>其中命令名称为大写英文字母，不同的命令名称有不同的命令参数。下面看一个Dockerfile的实例，实例取自Docker Hub上的镜像。我们在新的目录下面创建一个Dockerfile</p>
 <pre><code>&apos;&apos;&apos;
 FROM python:2.7
 ENV PYTHONUNBUFFERED 1
